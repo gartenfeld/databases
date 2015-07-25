@@ -15,7 +15,20 @@ module.exports = {
       })
     }, // a function which handles a get request for all messages
     post: function (req, res) {
-
+      models.users.get(function(err, results){
+        var userArray = results;
+        var user_id = null;
+        for (var i = 0; i < userArray.length; i++) {
+          if (userArray[i].username===req.body.username) user_id = userArray[i].objectId;
+        };
+        models.messages.post(function(err){
+          if(err){
+            res.status(400).end("Bad Request.");
+          }else{
+            res.status(201).end();
+          }
+        }, req.body.text, req.body.roomname, user_id);
+      });
     } // a function which handles posting a message to the database
   },
 

@@ -22,7 +22,7 @@ module.exports = {
       });
     }, // a function which produces all the messages
     post: function (cb, text, roomname, user_id) {
-      connection.query('INSERT INTO `chat`.`messages` (`text`, `roomname`, `created_at`, `users_id`) VALUES (`'+text+'`, `'+roomname+'`, NOW(), `'+user_id+'`);', function (err) {
+      connection.query('INSERT INTO `chat`.`messages` (`text`, `roomname`, `created_at`, `users_id`) VALUES ("'+text+'", "'+roomname+'", NOW(), "'+user_id+'");', function (err) {
         if (err) { 
           cb(err);
         } else {
