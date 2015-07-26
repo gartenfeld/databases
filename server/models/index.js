@@ -9,3 +9,7 @@ Object.keys(models).forEach(function (modelName) {
     models[modelName].associate(models);
   }
 });
+
+sequelize.sync();
+
+module.exports = models;

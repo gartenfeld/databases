@@ -1,5 +1,5 @@
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize('chat', 'root', '', {
+var sequelize = new Sequelize('chat2', 'root', '', {
   host: 'localhost',
   dialect: 'mysql',
   pool: {
